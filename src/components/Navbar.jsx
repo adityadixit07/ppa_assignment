@@ -8,10 +8,12 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#F5F7FA]">
-      <nav className="container mx-auto px-4 py-3">
+      <nav className="max-w-[1200px] mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="text-[#4CAF4F] text-xl font-bold">Nexcent</div>
+          <div className="text-[#4CAF4F] text-xl font-bold">
+            <img src="./images/logom.png" alt="logo" />
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
