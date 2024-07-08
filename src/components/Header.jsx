@@ -88,103 +88,8 @@
 
 // export default Header;
 
-// import React, { useState, useEffect } from "react";
-// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-// const slides = [
-//   {
-//     title: "Lessons from 8 years",
-//     subtitle: "of building products",
-//     image:
-//       "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_1280.jpg",
-//   },
-//   {
-//     title: "Innovate with confidence",
-//     subtitle: "embrace the future",
-//     image:
-//       "https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg",
-//   },
-//   {
-//     title: "Transform your business",
-//     subtitle: "with cutting-edge solutions",
-//     image:
-//       "https://cdn.pixabay.com/photo/2017/07/31/11/31/laptop-2557468_1280.jpg",
-//   },
-//   {
-//     title: "Empower your team",
-//     subtitle: "achieve more together",
-//     image:
-//       "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
-//   },
-// ];
-
-// const Header = () => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
-
-//   useEffect(() => {
-//     const timer = setInterval(() => {
-//       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-//     }, 5000); // Change slide every 5 seconds
-
-//     return () => clearInterval(timer);
-//   }, []);
-
-//   const nextSlide = () => {
-//     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-//   };
-
-//   const prevSlide = () => {
-//     setCurrentSlide(
-//       (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
-//     );
-//   };
-
-//   return (
-//     <header className="relative h-screen bg-gray-900 overflow-hidden">
-//       {slides.map((slide, index) => (
-//         <div
-//           key={index}
-//           className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-//             index === currentSlide ? "opacity-100" : "opacity-0"
-//           }`}
-//         >
-//           <img
-//             src={slide.image}
-//             alt={slide.title}
-//             className="object-cover w-full h-full"
-//           />
-//           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-//             <div className="text-center text-white px-4">
-//               <h1 className="text-4xl md:text-6xl font-bold mb-4 py-2">
-//                 {slide.title}{" "}
-//                 <span className="text-[#4CAF4F]">{slide.subtitle}</span>
-//               </h1>
-//               <button className="bg-[#4CAF4F] text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-[#45a049] transition duration-300">
-//                 Register Here
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//       <button
-//         onClick={prevSlide}
-//         className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-2xl hover:text-[#4CAF4F] transition duration-300"
-//       >
-//         <FaChevronLeft />
-//       </button>
-//       <button
-//         onClick={nextSlide}
-//         className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-2xl hover:text-[#4CAF4F] transition duration-300"
-//       >
-//         <FaChevronRight />
-//       </button>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
 import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const slides = [
   {
@@ -219,23 +124,28 @@ const Header = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000); //  slide every 5 seconds
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <header className="relative h-screen bg-[#F5F7FA] overflow-hidden flex items-center">
+    <header className="relative h-screen bg-gray-900 overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 w-full h-full flex items-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="w-1/2 p-8 text-white flex items-center justify-center">
-            <div className="text-center px-4">
-              <h1 className="text-xl md:text-3xl font-bold mb-4 py-5 text-[#4D4D4D]">
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="object-cover w-full h-full"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="text-center text-white px-4">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 py-5">
                 {slide.title} <br />
                 <span className="text-[#4CAF4F]">{slide.subtitle}</span>
               </h1>
@@ -244,11 +154,6 @@ const Header = () => {
               </button>
             </div>
           </div>
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="object-cover w-1/2 h-full"
-          />
         </div>
       ))}
     </header>

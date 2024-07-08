@@ -72,7 +72,7 @@ const OurClients = () => {
             {[...clients, ...clients].map((client, index) => (
               <div
                 key={`${client.id}-${index}`}
-                className="flex-shrink-0 w-2 sm:w-1/12 md:w-1/12 px-2 md:px-4 flex items-center justify-center"
+                className="flex-shrink-0 w-2 sm:w-3/12 md:w-3/12 px-2 md:px-4 flex items-center justify-center"
               >
                 <img
                   src={client.logo}
